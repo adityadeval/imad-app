@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 //Articles=
 //{
-    articleone={"title":"Article One|Aditya Deval",
+    articleone={"title-one":"Article One|Aditya Deval",
     "heading":"Article One",
     "date":"19 Sept 2017",
     "data":`<p>
@@ -97,7 +97,7 @@ function createTemplate(content)
 }
 
 app.get('/', function (req, res) {
-    res.send(articleone.title);
+    res.send(articleone.title-one);
 });
 //app.get('/', function (req, res) {
 //  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
