@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 var Articles=
 {
-    dataArticleOne:{title:"Article One|Aditya Deval",
+    article-one:{title:"Article One|Aditya Deval",
     heading:"Article One",
     date:"19 Sept 2017",
     data:`<p>
@@ -23,7 +23,7 @@ var Articles=
                     <p>
                     This is paragraph three.
                     </p>`},
-    dataArticleTwo:{title:"Article Two|Aditya Deval",
+    article-two:{title:"Article Two|Aditya Deval",
     heading:"Article Two",
     date:"18 September 2017 (Article 2)",
     data:`<p>
@@ -39,7 +39,7 @@ var Articles=
                 <p>
                 This is paragraph three.
                 </p>`},
-    dataArticleThree:{title:"Article Three|Aditya Deval",
+    article-three:{title:"Article Three|Aditya Deval",
     heading:"Article Three",
     date:"18 September 2017 (Article Three)",
     data:`<p>
@@ -100,16 +100,8 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(Articles[dataArticleOne]));
-});
-
-app.get('/article-two', function (req, res) {
-  res.send(createTemplate(dataArticleTwo));
-});
-
-app.get('/article-three', function (req, res) {
-  res.send(createTemplate(dataArticleThree));
+app.get('/:variable', function (req, res) {
+  res.send(createTemplate(Articles.article-one));
 });
 
 app.get('/ui/style.css', function (req, res) {
