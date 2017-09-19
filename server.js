@@ -5,7 +5,20 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
+articleone={title:"Duplicate",
+    "heading":"Duplicate article",
+    "date":"12000000",
+    "data":`<p>
+                    I am a duplicate article.
+                    I am a duplicate article.
+                    I am a duplicate article.
+                    </p>
+                    <p>
+                    I am a duplicate article.
+                    </p>
+                    <p>
+                    I am a duplicate article.
+                    </p>`};
 
 Articles=
 {
@@ -104,6 +117,10 @@ function createTemplate(content)
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/articleone',function(req,res){
+   res.send(createTemplate(articleone)); 
 });
 
 app.get('/:variable', function (req, res) {
