@@ -5,12 +5,111 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var dataArticleOne =
+{
+    title:"Article One|Aditya Deval",
+    heading:"Article One",
+    date:"19 Sept 2017",
+    data:`<p>
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    </p>
+                    <p>
+                    This is paragraph two.
+                    </p>
+                    <p>
+                    This is paragraph three.
+                    </p>`
+};
+
+var dataArticleTwo=
+{
+    title:"Article Two|Aditya Deval",
+    heading:"Article Two",
+    date:"18 September 2017 (Article 2)",
+    data:`<p>
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                </p>
+                <p>
+                This is paragraph two.
+                </p>
+                <p>
+                This is paragraph three.
+                </p>`
+};
+
+var dataArticleThree=
+{
+    title:"Article Three|Aditya Deval",
+    heading:"Article Three",
+    date:"18 September 2017 (Article Three)",
+    data:`<p>
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                This is paragraph one.
+                </p>
+                <p>
+                This is paragraph two.
+                </p>
+                <p>
+                This is paragraph three.
+                </p>`
+};
+
+function createTemplate(content)
+{
+    var title=content.title;
+    var date=content.date;
+    var heading=content.heading;
+    var data=content.data;
+    var htmlTemplate =
+        `<html>
+            <head>
+                <title>
+                     $title
+                </title>
+                <meta name="viewport" content="width=device-width,initial-scale=1"/>
+                <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            
+            <body>
+                <div class="container">
+                    <div>
+                        <a href="/">
+                        HOME
+                        </a>
+                    </div>
+                    <hr/>
+                    <h3>
+                        $heading
+                    </h3>
+                    <div>
+                        $date
+                    </div>
+                    <div>
+                        $data
+                    </div>
+                </div>
+            </body>
+        </html>`;
+    return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createTemplate(dataArticleOne));
 });
 
 app.get('/article-two', function (req, res) {
