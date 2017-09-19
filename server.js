@@ -7,8 +7,8 @@ app.use(morgan('combined'));
 
 //var Articles=
 //{
-    var articleone={title:"Article One|Aditya Deval",
-    heading:"Article One",
+    var articleone={"title":"Article One|Aditya Deval",
+    "heading":"Article One",
     date:"19 Sept 2017",
     data:`<p>
                     This is paragraph one.
