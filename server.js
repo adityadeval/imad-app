@@ -5,6 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+/*
 articleone={title:"Duplicate",
     "heading":"Duplicate article",
     "date":"12000000",
@@ -19,6 +20,7 @@ articleone={title:"Duplicate",
                     <p>
                     I am a duplicate article.
                     </p>`};
+*/
 
 Articles=
 {
@@ -119,9 +121,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/articleone',function(req,res){
-   res.send(createTemplate(articleone)); 
-});
+//app.get('/articleone',function(req,res){
+//   res.send(createTemplate(articleone)); 
+//});
 
 app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
