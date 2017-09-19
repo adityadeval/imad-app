@@ -5,9 +5,9 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Articles=
-{
-    articleone:{title:"Article One|Aditya Deval",
+//var Articles=
+//{
+    articleone={title:"Article One|Aditya Deval",
     heading:"Article One",
     date:"19 Sept 2017",
     data:`<p>
@@ -22,8 +22,8 @@ var Articles=
                     </p>
                     <p>
                     This is paragraph three.
-                    </p>`},
-    articletwo:{title:"Article Two|Aditya Deval",
+                    </p>`};
+    articletwo={title:"Article Two|Aditya Deval",
     heading:"Article Two",
     date:"18 September 2017 (Article 2)",
     data:`<p>
@@ -38,8 +38,8 @@ var Articles=
                 </p>
                 <p>
                 This is paragraph three.
-                </p>`},
-    articlethree:{title:"Article Three|Aditya Deval",
+                </p>`};
+    articlethree={title:"Article Three|Aditya Deval",
     heading:"Article Three",
     date:"18 September 2017 (Article Three)",
     data:`<p>
@@ -54,8 +54,8 @@ var Articles=
                 </p>
                 <p>
                 This is paragraph three.
-                </p>`}
-};
+                </p>`};
+//};
 
 function createTemplate(content)
 {
@@ -97,8 +97,11 @@ function createTemplate(content)
 }
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+    res.send(articleone.title);
 });
+//app.get('/', function (req, res) {
+//  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+//});
 
 app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
