@@ -101,7 +101,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:variable', function (req, res) {
-  res.send(createTemplate(Articles.article-one));
+  var variable2=req.params.variable;
+  res.send(createTemplate(Articles.variable2));
 });
 
 app.get('/ui/style.css', function (req, res) {
