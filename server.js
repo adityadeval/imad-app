@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 Articles=
 {
-    articleone:{title:"Article One|Aditya Deval",
+    "articleone":{"title":"Article One|Aditya Deval",
     heading:"Article One",
     date:"19 Sept 2017",
     data:`<p>
