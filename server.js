@@ -5,6 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+
+
 Articles=
 {
     articleone:{title:"Article One|Aditya Deval",
@@ -96,13 +98,13 @@ function createTemplate(content)
     return htmlTemplate;
 }
 
-app.get('/', function (req, res) {
-  res.send(Articles.articleone.title);
-});
-
 //app.get('/', function (req, res) {
-//  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+//  res.send(Articles.articleone.title);
 //});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 
 app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
