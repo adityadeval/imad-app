@@ -101,7 +101,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one', function (req, res) {
-  res.send(createTemplate(Articles.dataArticleOne));
+  res.send(createTemplate(Articles[dataArticleOne]));
 });
 
 app.get('/article-two', function (req, res) {
