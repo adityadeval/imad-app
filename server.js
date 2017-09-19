@@ -56,7 +56,7 @@ app.use(morgan('combined'));
                 This is paragraph three.
                 </p>`}
 };
-
+*/
 function createTemplate(content)
 {
     var title=content.title;
@@ -95,7 +95,7 @@ function createTemplate(content)
         </html>`;
     return htmlTemplate;
 }
-*/
+
 //app.get('/', function (req, res) {
 //    res.send(articleone[title]);
 //});
@@ -103,11 +103,15 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:variable', function (req, res) {
+app.get('/articleone',function (req, res){
+    res.send(createTemplate(articleone));
+});
+
+/*app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
   res.send(createTemplate(Articles[variable2]));
 });
-
+*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
