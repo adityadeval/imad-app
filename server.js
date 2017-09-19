@@ -102,7 +102,7 @@ app.get('/', function (req, res) {
 
 app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
-  res.send(createTemplate(Articles.variable2));
+  res.send(createTemplate(Articles[variable2]));
 });
 
 app.get('/ui/style.css', function (req, res) {
