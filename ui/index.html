@@ -4,7 +4,7 @@
         <link href="/ui/style.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="center">
+        <div class="center" id="divForMovingImgbyJs">
             <img src="/ui/madi.png" class="img-medium"/>
         </div>
         <br>
@@ -17,6 +17,11 @@
             console.log('Loaded inline js!')
             var element=document.getElementById("divForJs");
             element.innerHTML="Changed original using javascript !";
+            
+            var element2=document.getElementById("divForMovingImgbyJs");
+            element2.onclick=function(){
+                img.style.marginLeft='100px';
+            };
         </script>
         
         <script type="text/javascript" src="/ui/main.js">
