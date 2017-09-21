@@ -113,10 +113,6 @@ function createTemplate(content)
     return htmlTemplate;
 }
 
-//app.get('/', function (req, res) {
-//  res.send(Articles.articleone.title);
-//});
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -127,14 +123,23 @@ app.get('/counter', function (req, res) {
   res.send(counter.toString());
 });
 
+var nameArray=[];
+app.get('/:urlName',function (req, res){
+   var name=req.params.urlName;
+   nameArray.push(name);
+   res.send(JSON.stringify(nameArray));
+});
+
 //app.get('/articleone',function(req,res){
 //   res.send(createTemplate(articleone)); 
 //});
 
+/*
 app.get('/:variable', function (req, res) {
   var variable2=req.params.variable;
   res.send(createTemplate(Articles[variable2]));
 });
+*/
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
