@@ -117,6 +117,11 @@ function createTemplate(content)
 //  res.send(Articles.articleone.title);
 //});
 
+app.get('/:variable', function (req, res) {
+  var variable2=req.params.variable;
+  res.send(createTemplate(Articles[variable2]));
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -131,10 +136,7 @@ app.get('/counter', function (req, res) {
 //   res.send(createTemplate(articleone)); 
 //});
 
-app.get('/:variable', function (req, res) {
-  var variable2=req.params.variable;
-  res.send(createTemplate(Articles[variable2]));
-});
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
