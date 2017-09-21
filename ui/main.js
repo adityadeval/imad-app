@@ -46,7 +46,7 @@ button.onclick=function(){
 var textBox=document.getElementById("textBoxName");
 var name1=textBox.value;
 var submit=document.getElementById("submitButtonName");
-submit.click=function(){
+submit.onclick=function(){
     
     var names=["server1","server2","server3"];
     var list='';
