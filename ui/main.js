@@ -49,7 +49,7 @@ var submit=document.getElementById("submitButtonName");
 submit.click=function(){
     
     var names=["server1","server2","server3"];
-    var li='';
+    var list='';
     for(var i=0;i<names.length;i++)
     {
        list=list+"<li>"+names[i]+"</li>"; 
