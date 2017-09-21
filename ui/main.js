@@ -56,14 +56,15 @@ submit.onclick=function(){
             if(request.status===200){
                 var names=request.responseText; 
                 names=JSON.parse(names);
+                var list='';
+                for(var i=0;i<names.length;i++)
+                {
+                   list=list+"<li>"+names[i]+"</li>"; 
+                }
+                var finalList=document.getElementById("listName");
+                finalList.innerHTML=list;
             }
         }
-        var list='';
-        for(var i=0;i<names.length;i++)
-        {
-           list=list+"<li>"+names[i]+"</li>"; 
-        }
-        var finalList=document.getElementById("listName");
-        finalList.innerHTML=list;
+        
     };
 };
