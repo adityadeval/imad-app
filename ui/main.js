@@ -43,10 +43,11 @@ button.onclick=function(){
 };
 
 
-var textBox=document.getElementById("textBoxName");
-var name1=textBox.value;
+
 var submit=document.getElementById("submitButtonName");
 submit.onclick=function(){
+    var textBox=document.getElementById("textBoxName");
+    var name1=textBox.value;
     var request=new XMLHttpRequest();
     request.open('GET','http://adityadeval27.imad.hasura-app.io/submit-name/'+name1,true);
     request.send(null);
