@@ -7,3 +7,11 @@ console.log('Loaded main.js!');
 //            element2.onclick=function(){
 //                element2.style.marginLeft='100px';
 //            };
+
+var button=document.getElementById("buttonName");
+var span=document.getElementById("spanName");
+var cnt=0;
+button.onclick=function(){
+    cnt=cnt+1;
+    span.innerHTML=cnt.toString();
+};
