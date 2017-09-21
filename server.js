@@ -135,8 +135,9 @@ app.get('/submit-name/:urlName',function (req, res){
 var nameArray=[];
 app.get('/submit-name',function (req, res){
    var name=req.query.urlName;
-   nameArray.push(name);
-   res.send(JSON.stringify(nameArray));
+   res.send(name);
+//   nameArray.push(name);
+//   res.send(JSON.stringify(nameArray));
 });
 
 //app.get('/articleone',function(req,res){
