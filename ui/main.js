@@ -44,7 +44,7 @@ button.onclick=function(){
 */
 
 var textBox=document.getElementById("textBoxName");
-var name1=textBox.value;
+var name=textBox.value;
 var submit=document.getElementById("submitButtonName");
 submit.click=function(){
     
