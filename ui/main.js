@@ -23,6 +23,7 @@ button.onclick=function(){
 };
 */
 
+/*
 var button=document.getElementById("buttonName");
 var span=document.getElementById("spanName");
 button.onclick=function(){
@@ -39,4 +40,20 @@ button.onclick=function(){
            }
        }          
   };
+};
+*/
+
+var textBox=document.getElementById("textBoxName");
+var name1=textBox.value;
+var submit=document.getElementById("submitButtonName");
+submit.click=function(){
+    
+    var names=["server1","server2","server3"];
+    var li='';
+    for(var i=0;i<names.length;i++)
+    {
+       list=list+"<li>"+names[i]+"</li>"; 
+    }
+    var finalList=document.getElementById("listName");
+    finalList.innerHTML=list;
 };
