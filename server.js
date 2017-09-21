@@ -123,9 +123,18 @@ app.get('/counter', function (req, res) {
   res.send(counter.toString());
 });
 
+/*
 var nameArray=[];
 app.get('/submit-name/:urlName',function (req, res){
    var name=req.params.urlName;
+   nameArray.push(name);
+   res.send(JSON.stringify(nameArray));
+});
+*/
+
+var nameArray=[];
+app.get('/submit-name',function (req, res){
+   var name=req.query.urlName;
    nameArray.push(name);
    res.send(JSON.stringify(nameArray));
 });
