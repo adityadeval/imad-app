@@ -124,7 +124,7 @@ app.get('/counter', function (req, res) {
 });
 
 var nameArray=[];
-app.get('/:urlName',function (req, res){
+app.get('/submit-name/:urlName',function (req, res){
    var name=req.params.urlName;
    nameArray.push(name);
    res.send(JSON.stringify(nameArray));
