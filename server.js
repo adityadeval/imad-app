@@ -123,14 +123,13 @@ app.get('/counter', function (req, res) {
   res.send(counter.toString());
 });
 
-/*
 var nameArray=[];
 app.get('/:urlName',function (req, res){
    var name=req.params.urlName;
    nameArray.push(name);
    res.send(JSON.stringify(nameArray));
 });
-*/
+
 //app.get('/articleone',function(req,res){
 //   res.send(createTemplate(articleone)); 
 //});
