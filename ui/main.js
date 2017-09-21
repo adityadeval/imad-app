@@ -47,13 +47,23 @@ var textBox=document.getElementById("textBoxName");
 var name1=textBox.value;
 var submit=document.getElementById("submitButtonName");
 submit.onclick=function(){
+    var request=new XMLHttpRequest();
+    request.open('GET','http://adityadeval27.imad.hasura-app.io/submit-name/'+name1,true);
+    request.send(null);
     
-    var names=["server1","server2","server3"];
-    var list='';
-    for(var i=0;i<names.length;i++)
-    {
-       list=list+"<li>"+names[i]+"</li>"; 
-    }
-    var finalList=document.getElementById("listName");
-    finalList.innerHTML=list;
+    request.onreadystatechange=function(){
+        if(request.readyState==XMLHttpRequest.DONE){
+            if(request.status===200){
+                var names=request.responseText; 
+                names=JSON.parse(names);
+            }
+        }
+        var list='';
+        for(var i=0;i<names.length;i++)
+        {
+           list=list+"<li>"+names[i]+"</li>"; 
+        }
+        var finalList=document.getElementById("listName");
+        finalList.innerHTML=list;
+    };
 };
