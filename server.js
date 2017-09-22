@@ -1,10 +1,16 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
 var app = express();
 app.use(morgan('combined'));
-
+var pool=require('pg').pool;
+var config={
+    user:"adityadeval27",
+    database:"adityadeval27",
+    host:"db.imad.hasura-app.io",
+    port:"5432",
+    password:process.env.DB_PASSWORD
+};
 /*
 articleone={title:"Duplicate",
     "heading":"Duplicate article",
@@ -26,14 +32,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool=require('pg').pool;
-var config={
-    user:"adityadeval27",
-    database:"adityadeval27",
-    host:"db.imad.hasura-app.io",
-    port:"5432",
-    password:process.env.DB_PASSWORD
-};
+
 var pool=new Pool(config);
 app.get('/:varName', function (req, res) {
   var variable=req.params.varName;
