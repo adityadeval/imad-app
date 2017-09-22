@@ -22,6 +22,10 @@ articleone={title:"Duplicate",
                     </p>`};
 */
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
 var pool=require('pg').pool;
 var config={
     user:"adityadeval27",
@@ -141,9 +145,7 @@ function createTemplate(content)
     return htmlTemplate;
 }
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+
 
 var counter=0;
 app.get('/counter', function (req, res) {
