@@ -22,12 +22,55 @@ articleone={title:"Duplicate",
                     </p>`};
 */
 
-Articles=
-{
-    articleone:{title:"Article One|Aditya Deval",
-    "heading":"Article One",
-    "date":"19 Sept 2017",
-    "data":`<p>
+var pool=require('pg').pool;
+var config={
+    user:"adityadeval27",
+    database:"adityadeval27",
+    host:"db.imad.hasura-app.io",
+    port:"5432",
+    password:process.env.DB_PASSWORD
+};
+var pool=new Pool(config);
+app.get('/:varName', function (req, res) {
+  var variable=req.params.varName;
+  pool.query("SELECT * FROM Articles where title='"+variable+"|Aditya-Deval'",function(err,result){
+     if(err){
+         res.status(500).send(err.toString());
+     }else{
+         var articleData=result.rows[0];
+         res.send(createTemplate(articleData));
+     }
+  });
+});
+
+
+
+
+
+
+/*
+    Articles=
+    {
+        articleone:{title:"Article One|Aditya Deval",
+        "heading":"Article One",
+        "date":"19 Sept 2017",
+        "data":`<p>
+                        This is paragraph one.
+                        This is paragraph one.
+                        This is paragraph one.
+                        This is paragraph one.
+                        This is paragraph one.
+                        </p>
+                        <p>
+                        This is paragraph two.
+                        </p>
+                        <p>
+                        This is paragraph three.
+                        </p>`},
+        articletwo:{title:"Article Two|Aditya Deval",
+        heading:"Article Two",
+        date:"18 September 2017 (Article 2)",
+        data:`<p>
                     This is paragraph one.
                     This is paragraph one.
                     This is paragraph one.
@@ -40,39 +83,24 @@ Articles=
                     <p>
                     This is paragraph three.
                     </p>`},
-    articletwo:{title:"Article Two|Aditya Deval",
-    heading:"Article Two",
-    date:"18 September 2017 (Article 2)",
-    data:`<p>
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                </p>
-                <p>
-                This is paragraph two.
-                </p>
-                <p>
-                This is paragraph three.
-                </p>`},
-    articlethree:{title:"Article Three|Aditya Deval",
-    heading:"Article Three",
-    date:"18 September 2017 (Article Three)",
-    data:`<p>
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                This is paragraph one.
-                </p>
-                <p>
-                This is paragraph two.
-                </p>
-                <p>
-                This is paragraph three.
-                </p>`}
-};
+        articlethree:{title:"Article Three|Aditya Deval",
+        heading:"Article Three",
+        date:"18 September 2017 (Article Three)",
+        data:`<p>
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    This is paragraph one.
+                    </p>
+                    <p>
+                    This is paragraph two.
+                    </p>
+                    <p>
+                    This is paragraph three.
+                    </p>`}
+    };
+*/    
 
 function createTemplate(content)
 {
