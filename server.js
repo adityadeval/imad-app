@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 var pool=new Pool(config);
 app.get('/:varName', function (req, res) {
   var variable=req.params.varName;
-  pool.query('SELECT * FROM '+'"'+'Articles" where "'+'title"="'+variable+'"',function(err,result){
+  pool.query('SELECT * FROM '+'"'+'Articles" where "'+'title"='+"'"+variable+"'",function(err,result){
      if(err){
          res.status(500).send(err.toString());
      }else{
